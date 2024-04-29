@@ -4,7 +4,7 @@
  * @author Keanu De Cleene
  */
 public class Stack{
-    
+
     private Node head;
 
     /*
@@ -44,6 +44,21 @@ public class Stack{
     }
 
     /*
+     * counts the number of items currently in the stack 
+     * 
+     * @return the number of items currently in the stack
+     */
+    public int length(){
+        int count = 0;
+        Node current = head;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    /*
      * Looks at first item in the stack to see if the stack is empty. If it is empty returns True otherwise returns False
      * 
      * @return True if the stack is empty, False otherwise
@@ -66,7 +81,6 @@ public class Stack{
         }
         System.out.println();
     }
-
     
 /*
  * A node that stores a datum and its pointer
