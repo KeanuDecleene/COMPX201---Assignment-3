@@ -1,3 +1,4 @@
+import java.beans.Transient;
 import java.io.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.BeforeEach;
@@ -117,6 +118,28 @@ public class StackTest {
         buildStack();
         Assertions.assertFalse(stackTest.isEmpty());
     }
+
+    //Length function tests
+    
+    /*
+     * Tests that a stack that is empty returns 0
+     */
+    @Test
+    @DisplayName("length Empty stack")
+    public void testEmptyLength(){
+        Assertions.assertEquals(0, stackTest.length());
+    }
+
+    /*
+     * Tests that a stack that is not empty returns the correct length
+     */
+    @Test
+    @DisplayName("length Non-empty stack")
+    public void testNonEmptyLength(){
+        buildStack();
+        Assertions.assertEquals(4, stackTest.length());
+    }
+
 
     //Dump function tests
 
