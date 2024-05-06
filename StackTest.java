@@ -1,3 +1,8 @@
+/*
+ * Tests for the edge cases of a Stack data structure
+ * 
+ * @author Keanu De Cleene 
+ */
 import java.beans.Transient;
 import java.io.*;
 import org.junit.jupiter.api.DisplayName;
@@ -10,6 +15,9 @@ public class StackTest {
     private final PrintStream output = System.out;
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
+    /*
+     * before each tests resets the stack and output streams
+     */
     @BeforeEach
     public void resetStack() {
         stackTest = new Stack();
@@ -63,7 +71,7 @@ public class StackTest {
     }
 
     /*
-     * Testing if pop ensures head is null when popping last item
+     * Testing if pop ensures stack is empty when popping last item
      */
     @Test
     @DisplayName("Pop Last item")
@@ -117,7 +125,7 @@ public class StackTest {
     //Length function tests
     
     /*
-     * Tests that a stack that is empty returns 0
+     * Tests that a stack that is empty returns length as 0 
      */
     @Test
     @DisplayName("length Empty stack")
