@@ -14,24 +14,28 @@ public class Stack{
      */
     public void push(String s){
         Node n = new Node(s);
+        if(head == null){
+            head = n;
+            return;
+        }
         n.next = head;
         head = n;
     }
 
     /*
-     * remove and return an item from the front of the list (bottom of the stack), 
+     * remove a node and return an item from the front of the list (bottom of the stack), 
      *
      *
      * @return the item that was removed from the stack
      */
-    public Node pop(){
+    public String pop(){
         if (head == null) {
             System.out.println("Stack is empty");
             return null;
         }
         Node current = head;
         head = current.next;
-        return current;
+        return current.value;
     }
 
     /*
@@ -40,6 +44,10 @@ public class Stack{
      * @return the value of the first item in the stack
      */
     public String peek(){
+        if (head == null) {
+            System.out.println("Stack is empty");
+            return null;
+        }
         return head.value;
     }
 
@@ -95,8 +103,8 @@ public class Node{
      * @param the string value to be stored
      */
     public Node(String s){
-        this.value = s;
-        this.next = null;
+        value = s;
+        next = null;
     }
 }
 }
