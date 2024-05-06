@@ -15,7 +15,6 @@ public class StackTest {
         stackTest = new Stack();
         System.setOut(new PrintStream(outputStream));
     }
-
     //Push function tests
 
     /*
@@ -40,7 +39,6 @@ public class StackTest {
         Assertions.assertEquals("D->C->B->A->", outputStream.toString().trim());
         Assertions.assertEquals("D", stackTest.peek());
     }
-
     //Pop function tests
 
     /*
@@ -74,7 +72,6 @@ public class StackTest {
         stackTest.pop();
         Assertions.assertTrue(stackTest.isEmpty());
     }
-
     //Peek function tests
 
     /*
@@ -97,7 +94,6 @@ public class StackTest {
         stackTest.pop();
         Assertions.assertEquals("C", stackTest.peek());
     }
-    
     //isEmpty function tests
 
     /*
@@ -118,7 +114,6 @@ public class StackTest {
         buildStack();
         Assertions.assertFalse(stackTest.isEmpty());
     }
-
     //Length function tests
     
     /*
@@ -139,8 +134,6 @@ public class StackTest {
         buildStack();
         Assertions.assertEquals(4, stackTest.length());
     }
-
-
     //Dump function tests
 
     /*
@@ -151,8 +144,7 @@ public class StackTest {
     public void testEmptyDump(){
         stackTest.dump();
         Assertions.assertEquals("", outputStream.toString().trim());
-    }
-    
+    } 
 
     /*
      * Tests that a stack that is not empty dumps the correct string
@@ -164,7 +156,6 @@ public class StackTest {
         stackTest.dump();
         Assertions.assertEquals("D->C->B->A->", outputStream.toString().trim());
     }
-
 
     /*
      * Builds the stack by pushing some string values.
