@@ -21,7 +21,7 @@ public class StackTest {
      * Testing pushing to an empty stack
      */
     @Test
-    @DisplayName("Push to empty stack")
+    @DisplayName("Push Empty stack ")
     public void testPushToEmptyStack() {
         stackTest.push("A");
         stackTest.dump();
@@ -32,7 +32,7 @@ public class StackTest {
      * Testing pushing multiple items to a stack and if the order is maintained
      */
     @Test 
-    @DisplayName("Multiple pushes maintaining correct order")
+    @DisplayName("Push Multiple items maintaining correct order")
     public void testPush(){
         buildStack();
         stackTest.dump();
@@ -46,7 +46,7 @@ public class StackTest {
      * testing pop function when stack is empty
      */
     @Test
-    @DisplayName("Empty stack Pop")
+    @DisplayName("Pop Empty stack")
     public void testEmptyPop(){
         Assertions.assertNull(stackTest.pop());
     }
@@ -55,13 +55,23 @@ public class StackTest {
      * testing pop function returns correct item and if item is removed correctly
      */
     @Test
-    @DisplayName("Non-empty stack Pop")
+    @DisplayName("Pop Non-empty stack")
     public void testPop(){
         buildStack();
         Assertions.assertEquals("D", stackTest.pop());
         stackTest.dump();
         Assertions.assertEquals("C->B->A->", outputStream.toString().trim());
+    }
 
+    /*
+     * Testing if pop ensures head is null when popping last item
+     */
+    @Test
+    @DisplayName("Pop Last item")
+    public void testPopLastItem(){
+        stackTest.push("D");
+        stackTest.pop();
+        Assertions.assertTrue(stackTest.isEmpty());
     }
 
     //Peek function tests
@@ -70,7 +80,7 @@ public class StackTest {
      * testing peek function when stack is empty
      */
     @Test
-    @DisplayName("Empty stack peek")
+    @DisplayName("Peek Empty stack")
     public void testEmptyPeek(){
         Assertions.assertNull(stackTest.peek());
     }
@@ -79,7 +89,7 @@ public class StackTest {
      * testing peek function when stack is not empty
      */
     @Test
-    @DisplayName("Non-empty stack peek")
+    @DisplayName("Peek Non-empty stack")
     public void testPeek(){
         buildStack();
         Assertions.assertEquals("D", stackTest.peek());
@@ -93,7 +103,7 @@ public class StackTest {
      * Tests if a stack is empty
      */
     @Test
-    @DisplayName("Empty stack returns True")
+    @DisplayName("isEmpty Empty stack returns True")
     public void testEmptyStack(){
         Assertions.assertTrue(stackTest.isEmpty());
     }
@@ -102,7 +112,7 @@ public class StackTest {
      * tests that a stack that is not empty returns false 
      */
     @Test
-    @DisplayName("Non-empty stack returns False")
+    @DisplayName("isEmpty Non-empty stack returns False")
     public void testStack(){
         buildStack();
         Assertions.assertFalse(stackTest.isEmpty());
@@ -114,7 +124,7 @@ public class StackTest {
      * Tests that a stack that is empty dumps an empty string
      */
     @Test
-    @DisplayName("Empty stack dump")
+    @DisplayName("dump Empty stack")
     public void testEmptyDump(){
         stackTest.dump();
         Assertions.assertEquals("", outputStream.toString().trim());
@@ -125,7 +135,7 @@ public class StackTest {
      * Tests that a stack that is not empty dumps the correct string
      */
     @Test
-    @DisplayName("Non-empty stack dump")
+    @DisplayName("dump Non-empty stack")
     public void testNonEmptyDump(){
         buildStack();
         stackTest.dump();
